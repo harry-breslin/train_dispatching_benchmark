@@ -13,7 +13,7 @@ Project contributors:
 - Marco Maratea (Department of Mathematics and Informatics, University of Calabria, Italy), and
 - Mauro Vallati (Department of Computer Science, University of Huddersfield, UK)
 
-# Repository Organisation
+## Repository Organisation
 
 The folder `data` includes the datasets used in the paper, whereas the folder `model` includes all MiniZinc model files.
 
