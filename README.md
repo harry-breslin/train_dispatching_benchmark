@@ -2,7 +2,7 @@ Constraint-based In-Station Train Dispatching
 =============================================
 
 This repository is the support material for the paper *"Constraint-based In-Station Train Dispatching"*
-published and presented at [CP 2025](https://cp2025.a4cp.org/). The paper is available in the open-access
+published and presented at [CP 2025](https://cp2025.a4cp.org/). The [paper](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CP.2025.33) is available in the open-access
 proceedings at [Schloss Dagstuhl - Leibniz Zentrum für Informatik](https://drops.dagstuhl.de/entities/volume/LIPIcs-volume-340).
 
 Project contributors:
@@ -19,15 +19,23 @@ The folder `data` includes the datasets used in the paper, whereas the folder `m
 
 If you find the materials in this repository useful, please cite our paper:
 ```
-@inproceedings{schutt2025constraint,
-    title={Constraint-based In-Station Train Dispatching},
-    author={Schutt, Andreas and Cardellini, Matteo and Dekker, Jip J. and Harabor, Daniel and Maratea, Marco and Vallati, Mauro},
-    booktitle={31st International Conference on Principles and Practice of Constraint Programming},
-    editor={Garcia de la Banda, Maria},
-    year={2025},
-    pages={TBA},
-    doi={TBA},
-    publisher={Schloss Dagstuhl - Leibniz Zentrum f{\"u}r Informatik}
+@InProceedings{schutt_et_al:LIPIcs.CP.2025.33,
+  author =	{Schutt, Andreas and Cardellini, Matteo and Dekker, Jip J. and Harabor, Daniel and Maratea, Marco and Vallati, Mauro},
+  title =	{{Constraint-Based In-Station Train Dispatching}},
+  booktitle =	{31st International Conference on Principles and Practice of Constraint Programming (CP 2025)},
+  pages =	{33:1--33:24},
+  series =	{Leibniz International Proceedings in Informatics (LIPIcs)},
+  ISBN =	{978-3-95977-380-5},
+  ISSN =	{1868-8969},
+  year =	{2025},
+  volume =	{340},
+  editor =	{de la Banda, Maria Garcia},
+  publisher =	{Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address =	{Dagstuhl, Germany},
+  URL =		{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CP.2025.33},
+  URN =		{urn:nbn:de:0030-drops-238941},
+  doi =		{10.4230/LIPIcs.CP.2025.33},
+  annote =	{Keywords: in-station train dispatching, train scheduling, railway scheduling, constraint programming, mixed-integer programming}
 }
 ```
 
