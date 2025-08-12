@@ -32,6 +32,6 @@ In addition, the model has following options.
 To solve an instance with the model, one need to execute as follow.
 
 ```
-minizinc [-D "col_opt=<int>;restart_opt=<int>;" <Goal>.mzn [<Search>.mzn] [<Print>.mzn] <instance>.dzn
+minizinc [-D "col_opt=<int>;restart_opt=<int>;"] <Goal>.mzn [<Search>.mzn] [<Print>.mzn] <instance>.dzn
 ```
 
