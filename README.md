@@ -17,7 +17,9 @@ Project contributors:
 
 The folder `data` includes the datasets used in the paper, whereas the folder `model` includes all MiniZinc model files.
 
-If you find the materials in this repository useful, please cite our paper:
+## Reference
+
+If you find the materials in this repository useful and/or you use the data, please cite our paper:
 ```
 @InProceedings{schutt_et_al:LIPIcs.CP.2025.33,
   author =	{Schutt, Andreas and Cardellini, Matteo and Dekker, Jip J. and Harabor, Daniel and Maratea, Marco and Vallati, Mauro},
@@ -39,3 +41,4 @@ If you find the materials in this repository useful, please cite our paper:
 }
 ```
 
+## ...stay tune more to come...
