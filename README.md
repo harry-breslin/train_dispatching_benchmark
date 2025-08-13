@@ -3,7 +3,7 @@ Constraint-based In-Station Train Dispatching
 
 This repository is the support material for the paper *"Constraint-based In-Station Train Dispatching"*
 published and presented at [CP 2025](https://cp2025.a4cp.org/). The [paper](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CP.2025.33) is available in the open-access
-proceedings at [Schloss Dagstuhl - Leibniz Zentrum für Informatik](https://drops.dagstuhl.de/entities/volume/LIPIcs-volume-340).
+proceedings at [Schloss Dagstuhl - Leibniz Zentrum für Informatik](https://drops.dagstuhl.de/entities/volume/LIPIcs-volume-340) or in this repository as [LIPIcs.CP.2025.33.pdf](LIPIcs.CP.2025.33.pdf).
 
 Project contributors:
 - Andreas Schutt (Data61, CSIRO, Australia),
