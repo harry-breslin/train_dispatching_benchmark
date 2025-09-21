@@ -61,13 +61,15 @@ array [C] of int: c_width = [   % The number of edges in the column
 %array [N] of string: n_name;    % Name of node, e.g., "F01" or "" for no name
 
 % Train types
-%   dest   - train terminating at the station and blocking their platform for
-%            the remaining planning horizon
-%   vanish - train terminating at the station, but vanish when they end their
-%            stop, i.e., releasing their platform
-%   origin - train starting at the station
-%   pass   - train og through the station with or without a stop
-enum TTypes = {dest, origin, pass, vanish};
+%   dest    - train terminating at the station and blocking their platform for
+%             the remaining planning horizon
+%   vanish  - train terminating at the station, but vanish when they end their
+%             stop, i.e., releasing their platform
+%   appear  - train starting at the station, but their platform is empty before
+%             that
+%   origin  - train starting at the station
+%   pass    - train going through the station with or without a stop
+enum TTypes = {dest, origin, pass, vanish, appear, reverse};
 
 % Train-related parameters
 int: nb_trains;                 % Number of trains
