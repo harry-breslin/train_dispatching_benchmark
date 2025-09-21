@@ -10,7 +10,8 @@
 % 2. A route describes one path through the station including termination on a
 %   platform.
 % 3. A train can only stop once during an iter
-% 4. A train can halt at the end of an itenerary at a platform.
+% 4. A train can halt at the end of an itinerary at a platform.
+% 5. Appearing trains cannot have a dwell time of zero.
 %
 %------------------------------------------------------------------------------%
 % Libraries includes

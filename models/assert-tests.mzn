@@ -20,3 +20,11 @@ constraint forall(t in T)(
     )
 );
 
+% Appearing trains cannot have a dwell time of zero
+constraint forall(t in T where t_type[t] = appear) (
+    let {
+        set of int: Ds = { r_dwell_min[r] | r in t_routes[t] }
+    } in (
+        assert(forall(d in Ds)(d > 0), "Appearing train \(t) has a dwell time of zero!\n")
+    )
+);
