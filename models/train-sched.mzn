@@ -70,6 +70,8 @@ array [C] of int: c_width = [   % The number of edges in the column
 %             that
 %   origin  - train starting at the station
 %   pass    - train going through the station with or without a stop
+%   reverse - train going through the station with or without a stop, but
+%             leaving in the same direction as arrival
 enum TTypes = {dest, origin, pass, vanish, appear, reverse};
 
 % Train-related parameters
