@@ -70,4 +70,11 @@ function ETypes: get_column_type(C: c) =
     );
 
 %------------------------------------------------------------------------------%
+% Turning a list of sets into a string for output
+
+% default show() for sets looks like 1..3 instead of {1, 2, 3}
+function string: show_sets(array[int] of set of int: sets) =
+    "[" ++ join(",", [ "{" ++ join(",", [ show(x) | x in sets[i] ]) ++ "}" | i in index_set(sets) ]) ++ "]";
+
+%------------------------------------------------------------------------------%
 
