@@ -1,3 +1,9 @@
+"""
+Script to generate the data and instance files for appear trains using origin train data in the cp2025 dataset.
+Only uses the "sat" goal for now.
+Should be run in the root directory, e.g. `python scripts/create_appear_data_instances.py`.
+"""
+
 import os
 import subprocess
 import glob

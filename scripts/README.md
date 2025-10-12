@@ -34,6 +34,7 @@ uv run mzn-bench collect-objectives --param v_makespan --param v_end_sum results
 
 The following other helper scripts are contained in this directory:
 
+- `create_appear_data_instances.py`: This script generates the data and instance files for appear trains using origin train data in the cp2025 dataset.
 - `create_instance_files.py`: This script generated the instance CSV files in the `<root>/data` directory used by the `schedule_bench.py` and `schedule_warmstart_bench.py` scripts to determine which files belong to each instance.
 - `create_table.py`: This script generated the (LaTeX) table that summarizes the results for the paper.
 - `create_warmstart_data.py`: This script generates the files containing the solutions that are used to warmstart the solvers when using `schedule_warmstart_bench.py`.

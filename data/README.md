@@ -10,3 +10,5 @@ PDDL+ Planning Approach"* published at [ICAPS 2021](http://icaps21.icaps-confere
 The original files are available at [PDDL+ data files](https://github.com/matteocarde/icaps2021).
 
 The dataset `cp2025` were created specifically for the paper.
+
+The dataset `appear-cp2025` was created from `cp2025` to test appear trains.
