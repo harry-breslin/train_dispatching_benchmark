@@ -13,7 +13,7 @@ fi
 
 # Download MiniZinc Distribution if required
 if [ ! -f minizinc ]; then
-	wget https://github.com/MiniZinc/MiniZincIDE/releases/download/edge/MiniZincIDE-build1700270071-x86_64.AppImage
+	wget https://github.com/MiniZinc/MiniZincIDE/releases/download/2.9.2/MiniZincIDE-2.9.2-x86_64.AppImage
 	mv MiniZincIDE-*.AppImage minizinc
 	chmod +x minizinc
 fi
