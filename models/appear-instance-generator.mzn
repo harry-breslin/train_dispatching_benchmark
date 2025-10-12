@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------%
-% Instance generator for reverse trains using pass trains
+% Instance generator for appear trains using origin trains
 %------------------------------------------------------------------------------%
 % Libraries included
 
@@ -134,7 +134,7 @@ output [
   "t_name = \(t_name);\n",
   "t_routes = ", show_sets(t_routes), ";\n",
   "t_est = \(t_est);\n",
-  "t_type = \(t_type);\n",
+  "t_type = \([ if t_type[t] = origin then appear else t_type[t] endif | t in T ]);\n",
   "nb_routes = \(nb_routes);\n",
   "r_name = \(r_name);\n",
   "r_it_1 = \(r_it_1);\n",
