@@ -1,5 +1,8 @@
 %------------------------------------------------------------------------------%
 % Instance generator for appear trains using origin trains
+%
+% Each origin train in the input is replaced by an appear train, and the dwell
+% time is set to 1 if it was 0.
 %------------------------------------------------------------------------------%
 % Libraries included
 
@@ -125,6 +128,10 @@ set of int: D = 0..time_dur;
 %------------------------------------------------------------------------------%
 % Output
 
+array[T] of TTypes: t_type_new = [ if t_type[t] = origin then appear else t_type[t] endif | t in T ];
+array[R] of int: r_dwell_min_new = [ if t_type_new[r_train[r]] = appear /\ r_dwell_min[r] = 0 % appear trains cannot have 0 dwell time
+    then 1 else r_dwell_min[r] endif | r in R ];
+
 output [
   "nb_edges = \(nb_edges);\n",
   "e_name = \(e_name);\n",
@@ -134,13 +141,13 @@ output [
   "t_name = \(t_name);\n",
   "t_routes = ", show_sets(t_routes), ";\n",
   "t_est = \(t_est);\n",
-  "t_type = \([ if t_type[t] = origin then appear else t_type[t] endif | t in T ]);\n",
+  "t_type = \(t_type_new);\n",
   "nb_routes = \(nb_routes);\n",
   "r_name = \(r_name);\n",
   "r_it_1 = \(r_it_1);\n",
   "r_it_2 = \(r_it_2);\n",
   "r_platform_name = \(r_platform_name);\n",
-  "r_dwell_min = \(r_dwell_min);\n",
+  "r_dwell_min = \(r_dwell_min_new);\n",
   "r_dur_min = \(r_dur_min);\n",
   "r_overlap = \(r_overlap);\n",
   "r_block_start = \(r_block_start);\n",
