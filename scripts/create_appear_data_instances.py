@@ -9,11 +9,12 @@ import subprocess
 import glob
 import csv
 
-input_folder = "data/cp2025"
+goal = "sat"
 data_dir = "appear-cp2025"
+input_folder = "data/cp2025"
 output_folder = f"data/{data_dir}"
 generator_model = "models/appear-instance-generator.mzn"
-instances_csv = "data/instances_sat_appear.csv"
+instances_csv = f"data/instances_{goal}_{data_dir}.csv"
 
 os.makedirs(output_folder, exist_ok=True)
 
@@ -47,7 +48,7 @@ with open(instances_csv, "w", newline="") as csvfile:
     for instance in new_instances:
         row = {
             "problem": data_dir,
-            "model": "../models/solve_sat.mzn:../models/pddl-print.mzn",
+            "model": f"../models/solve_{goal}.mzn:../models/pddl-print.mzn",
             "data_file": f"{data_dir}/{instance}",
         }
         writer.writerow(row)
