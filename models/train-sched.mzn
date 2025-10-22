@@ -163,7 +163,9 @@ array [B] of var D: b_vdur = [
 % Variables related to the columns/routes
 
 % Makespan
-var H: v_makespan = max(v_end);
+% var H: v_makespan = max(v_end);
+var H: v_makespan ::output = max(v_end);
+int: v_end_sum ::output_only ::output = sum(fix(v_end));
 
 %------------------------------------------------------------------------------%
 % Constraints
