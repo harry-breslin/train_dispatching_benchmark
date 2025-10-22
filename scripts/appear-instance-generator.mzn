@@ -128,7 +128,8 @@ set of int: D = 0..time_dur;
 %------------------------------------------------------------------------------%
 % Output
 
-array[T] of TTypes: t_type_new = [ if t_type[t] = origin then appear else t_type[t] endif | t in T ];
+array[T] of bool: make_appear = [ if t_type[t] = origin then bernoulli(0.5) else false endif | t in T ]; % make ~half of origin trains appear trains
+array[T] of TTypes: t_type_new = [ if t_type[t] = origin /\ make_appear[t] then appear else t_type[t] endif | t in T ];
 array[R] of int: r_dwell_min_new = [ if t_type_new[r_train[r]] = appear /\ r_dwell_min[r] = 0 % appear trains cannot have 0 dwell time
     then 1 else r_dwell_min[r] endif | r in R ];
 
