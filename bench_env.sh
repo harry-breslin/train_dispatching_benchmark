@@ -1,21 +1,21 @@
 if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
-	>&2 echo "Remember: you need to run me as 'source ${0}', not execute it!"
-	exit
+    >&2 echo "Remember: you need to run me as 'source ${0}', not execute it!"
+    exit
 fi
 
 # Create or activate Python virtual environment
 if [ -d .venv ]; then
-	source .venv/bin/activate
+    source .venv/bin/activate
 else
-	uv sync
-	source .venv/bin/activate
+    uv sync
+    source .venv/bin/activate
 fi
 
 # Download MiniZinc Distribution if required
 if [ ! -f minizinc ]; then
-	wget https://github.com/MiniZinc/MiniZincIDE/releases/download/2.9.2/MiniZincIDE-2.9.2-x86_64.AppImage
-	mv MiniZincIDE-*.AppImage minizinc
-	chmod +x minizinc
+    wget https://github.com/MiniZinc/MiniZincIDE/releases/download/2.9.4/MiniZincIDE-2.9.4-x86_64.AppImage
+    mv MiniZincIDE-*.AppImage minizinc
+    chmod +x minizinc
 fi
 # Source the MiniZinc Distribution
 export PATH=$(pwd):$PATH
@@ -23,6 +23,7 @@ export PATH=$(pwd):$PATH
 # Set other environment variables and load cluster modules
 module load CpoFzn/1.0.0
 module load Gurobi/12.0.1
+module del GCCcore
 
 # module load MiniZinc/2.9.0
 # module load Chuffed/0f253d1f2fa60a3f991f428c249b8af95a03dbbf
