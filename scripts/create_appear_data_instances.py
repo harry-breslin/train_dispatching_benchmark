@@ -1,6 +1,6 @@
 """
 Script to generate the data and instance files for appear trains using origin train data in the cp2025 dataset.
-Only uses the "sat" goal for now.
+Goal is hardcoded for now.
 Should be run in the root directory, e.g. `python scripts/create_appear_data_instances.py`.
 """
 
@@ -13,7 +13,7 @@ goal = "sat"
 data_dir = "appear-cp2025"
 input_folder = "data/cp2025"
 output_folder = f"data/{data_dir}"
-generator_model = "models/appear-instance-generator.mzn"
+generator_model = "scripts/appear-instance-generator.mzn"
 instances_csv = f"data/instances_{goal}_{data_dir}.csv"
 
 os.makedirs(output_folder, exist_ok=True)
@@ -31,10 +31,14 @@ for dzn_file in glob.glob(os.path.join(input_folder, "*.dzn")):
         continue
 
     out_file = os.path.join(output_folder, f"appear-{os.path.basename(dzn_file)}")
-    result = subprocess.run(["minizinc", generator_model, dzn_file], capture_output=True, text=True)
+    result = subprocess.run(
+        ["minizinc", "--solver", "cp-sat", generator_model, dzn_file], capture_output=True, text=True
+    )
 
     output_lines = result.stdout.rstrip("\n").split("\n")
-    truncated_output = "\n".join(output_lines[:-1]) + "\n"  # remove line with ---------- and add newline
+    truncated_output = (
+        "\n".join(output_lines[:-2]) + "\n"
+    )  # remove trailing newline and line with ----------, and add newline
     with open(out_file, "w") as f:
         f.write(truncated_output)
 
