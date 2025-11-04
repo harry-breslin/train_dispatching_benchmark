@@ -202,7 +202,7 @@ def main(src, dst):
             platform_itins[plat]["second"].append((idx, data["r_it_2"][idx]))
 
     nb_initial_trains = data["nb_trains"]
-    train_limit = nb_initial_trains * 1.2 + 1  # allow up to 20% more trains
+    train_limit = min(50, nb_initial_trains * 1.2)  # allow up to 20% more trains (capped at 50)
 
     # For each platform, attempt to pair first-itineraries with matching second-itineraries.
     # Matching rule: itinerary names are permutations of each other (e.g., "IE1" <-> "I1E").
