@@ -78,19 +78,6 @@ def dump_dzn(path, data):
             write_parameter(f, name, val)
 
 
-def slice_blocks(data, r):
-    # start_idx and end_idx are block indices (1-based) inclusive
-    r_start = data["r_block_start"][r] - 1
-    r_end = data["r_block_end"][r]
-    return (
-        data["b_edge"][r_start:r_end],
-        data["b_dur"][r_start:r_end],
-        data["b_start_offset"][r_start:r_end],
-        data["b_stop"][r_start:r_end],
-        data["b_route"][r_start:r_end],
-    )
-
-
 def split_route_at_platform(data, r):
     """Return (first_it_blocks, second_it_blocks) for route r (0-based index).
     Each is a tuple of lists: (edges, durs, offs, stops).
@@ -214,6 +201,9 @@ def main(src, dst):
         if data["r_it_2"][idx]:
             platform_itins[plat]["second"].append((idx, data["r_it_2"][idx]))
 
+    nb_initial_trains = data["nb_trains"]
+    train_limit = nb_initial_trains * 1.2 + 1  # allow up to 20% more trains
+
     # For each platform, attempt to pair first-itineraries with matching second-itineraries.
     # Matching rule: itinerary names are permutations of each other (e.g., "IE1" <-> "I1E").
     for plat, groups in platform_itins.items():
@@ -258,10 +248,10 @@ def main(src, dst):
                 stops=stops,
             )
 
-            # limit the total number of trains to 50 to avoid too large data
-            if data["nb_trains"] >= 50:
+            # limit the total number of trains to avoid excessively large instances/skewed distribution of instance size
+            if data["nb_trains"] >= train_limit:
                 break
-        if data["nb_trains"] >= 50:
+        if data["nb_trains"] >= train_limit:
             break
 
     dump_dzn(dst, data)
@@ -269,5 +259,3 @@ def main(src, dst):
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
-    # data = read_dzn(Path(sys.argv[1]))
-    # dump_dzn(Path(sys.argv[2]), data)
