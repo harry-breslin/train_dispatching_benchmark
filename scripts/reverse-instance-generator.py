@@ -258,6 +258,12 @@ def main(src, dst):
                 stops=stops,
             )
 
+            # limit the total number of trains to 50 to avoid too large data
+            if data["nb_trains"] >= 50:
+                break
+        if data["nb_trains"] >= 50:
+            break
+
     dump_dzn(dst, data)
 
 
